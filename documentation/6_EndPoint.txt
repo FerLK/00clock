@@ -1,0 +1,59 @@
+endpoints to create forms
+##############################################################################
+from flask_wtf import FlaskForm
+from wtforms import (StringField,BooleanField,DateField, RadioField, IntegerField,
+                        SelectField,TextAreaField,SubmitField,DateTimeField)
+
+
+forms -> create a object to call it inside the endpoint (example)
+##############################################################################
+
+class AddForm(FlaskForm):
+    name = StringField('Name: ')
+    submit = SubmitField('add new')
+
+class DelForm(FlaskForm):
+    id = IntegerField('Id of item to remove.')
+    submit = SubmitField('remove')
+
+
+conditional structure for forms (example)
+##############################################################################
+@app.route('/add', methods=['GET','POST'])
+def add_new():
+    form = AddForm()
+    if form.validate_on_submit():
+        name = form.name.data
+        new_name_class = NameClass(name)
+        db.session.add(new_name_class)
+        db.session.commit()
+
+        return redirect(url_for('list_name_class'))
+    return render_template('add.html', form = form)
+##############################################################################
+
+class InfoForm(FlaskForm):
+    work_begin = StringField('Begin',validators=[DataRequired()])
+    home_office = BooleanField("Home", validators=[DataRequired()])
+    mood = RadioField("Extra time", choices=[('mood_one',"Yes"),('mood_two',"No")])
+    feedback=TextAreaField()
+    submit = SubmitField('Submit')
+
+
+@app.route('/sch', methods=['GET','POST'])
+def schedule():
+    form = InfoForm()
+    if form.validate_on_submit():
+        session['work_begin'] = form.work_begin.data
+        session['home_office'] = form.home_office.data
+        session['mood'] = form.mood.data
+        session['feedback'] = form.feedback.data
+        session['submit'] = form.submit.data
+        
+        return redirect(url_for('info'))
+    return render_template("schedule.html",form=form)
+
+
+@app.route('/info')
+def info():
+    return render_template("info.html")

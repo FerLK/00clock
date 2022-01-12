@@ -1,0 +1,24 @@
+{%extends "model-page.html"%}
+{%block content%}
+<div class = "mid">
+    <div class = "container_mid" id="reg">
+        <h2>Register</h2>
+          <form method="POST">
+              <div class="form-item">
+                  <span class="material-icons">label</span>
+                  {{form.hidden_tag()}}
+                  {{form.name.label}}{{form.name()}}
+
+                </div>
+              <div class="form-item">
+                  <span class="material-icons">label</span>
+                  {{form.password.label}}{{form.password()}}
+                </div>
+              <br>
+              <button type="submit" {{form.submit}}></button>
+          </form>
+
+    </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,330 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin:0;
+    padding: 0;
+    border:0;
+    background-color: rgb(6, 10, 8);
+    
+}
+
+/**HEADER**/
+
+
+
+header{
+   background-color: rgb(13, 26, 18);
+   display:flex;
+   justify-content: space-between;
+   align-items: center;
+   padding: 10px 5%;
+}
+
+li,a,button{
+   background-color: rgb(6, 10, 8);
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 500;
+   font-size: 18px;
+   color:  rgb(163, 202, 214);
+   text-decoration: none;
+
+}
+
+.logo{
+   cursor: pointer;
+}
+
+.nav_links{
+   list-style: none;
+}
+
+.nav_links li{
+   background-color: rgb(13, 26, 18);
+   display: inline-block;
+   padding: 0px 20px;
+}
+
+.nav_links li a{
+   background-color: rgb(13, 26, 18);
+   transition: all 0.3 ease 0s;
+}
+
+.nav_links li a:hover {
+   color:rgb(192, 241, 151);
+}
+
+header button{
+   padding:  9px 25px;
+   background-color: rgb(96, 110, 240);
+   border: none;
+   border-radius: 50px;
+   cursor: pointer;
+   transition: all 0.3s ease 0s;
+}
+
+header button:hover {
+   background-color: rgb(117, 189, 107);
+   color:rgb(246, 248, 245);
+}
+
+header img{
+    border-radius: 75%;
+    max-width:110px;
+    max-height:80px;
+    width: auto;
+    height: auto;
+    border:3px solid rgb(141, 173, 165);
+}
+
+#clock{
+   background-color: rgb(13, 26, 18);
+   text-align: end;
+   font-family: 'Lilita One', cursive;
+   min-width: 200px;
+   width: auto;
+   height: auto;
+}
+
+#time, #weekDay{
+   background-color: rgb(13, 26, 18);
+   color:  rgb(141, 173, 165);
+   font-size: 36px;
+   font-family: 'Lilita One', cursive;
+}
+
+#weekDay{
+    font-size: 18px;
+}
+
+
+/**FOOTER**/
+
+footer{
+   width: 100%;
+   height: auto;
+   position: auto;
+   bottom: 0;
+   left: 0;
+   margin-top: 800px;
+}
+
+.container_footer{
+   padding: 15px 0;
+   margin:auto;
+   background-color: rgb(6, 10, 8);
+   align-items: center;
+   max-width: auto;
+}
+
+.row_footer{
+   display: flex;
+   flex-wrap: wrap;
+   margin-left: 10%;
+}
+
+.footer_col{
+   align-items: center;
+   width: 25%;
+   padding: 0 15px;
+}
+
+.footer_col h4{
+  font-family: 'Lilita One', cursive;
+  font-size: 18px;
+  color: rgb(94, 109, 247);
+  text-transform: capitalize;
+  margin-bottom: 25px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer_col h4:hover{
+   text-decoration: dimgray;
+   color: rgb(196, 71, 245);
+   
+ }
+
+.container_footer{
+   list-style: none;
+}
+
+.container_footer li{
+   background-color: rgb(6, 10, 8);
+
+   margin-bottom: 15px;
+   display: block;
+   padding: 0px 2px;
+}
+
+.container_footer li a{
+   background-color: rgb(6, 10, 8);
+   transition: all 0.3 ease 0s;
+}
+
+.container_footer li a:hover {
+   color:rgb(192, 241, 151);
+   padding-left: 10px;
+}
+
+/**MAIN**/
+
+.background{
+   background-image: url('/static/images/archive-5.png');
+   filter: brightness(40%);
+   background-repeat: repeat;
+   background-size: cover;
+   background-blend-mode: darken ;
+   background-size: cover;
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   z-index: -1;
+   filter:blur(Spx);
+}
+
+
+.info{
+   background-color: rgb(117, 189, 107);
+   color: gold;
+}
+
+
+/***login***/
+
+.mid{
+   padding: 0;
+   margin: 0;
+   color: honeydew;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 500;
+   font-size: 18px;
+   color:  rgb(250, 250, 250);
+   text-decoration: none;
+}
+
+
+.container_mid{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   width: auto;
+   margin: 150px auto;
+   background: transparent;
+   box-shadow: 0 0 15px rgb(255, 255, 255);
+   border-radius: 15px;
+}
+
+.mid h2{
+   font-size: 30px;
+   padding: 10px;
+}
+.mid form{
+   padding: 10px;
+   display: flex;
+   flex-direction: column;
+   width: 85%;
+}
+.form-item{
+   display: flex;
+   width: 90%;
+   background: transparent;
+   margin: 10px auto;
+   border-bottom: 1px solid;
+   align-items: center;
+}
+.form-item input{
+   color: white;
+   background: transparent;
+   padding: 20px;
+   width: 80%;
+   height: 30px;
+   outline: none;
+   border:none;
+   margin: auto;
+   border-bottom:10px ;
+}
+
+::placeholder { 
+   color: rgb(252, 252, 252);
+ }
+
+.mid button{
+   align-self: center;
+   padding:  9px 25px;
+   background-color: transparent;
+   border: none;
+   border-radius: 50px;
+   cursor: pointer;
+   transition: all 0.3s ease 0s;
+   max-width:110px;
+   max-height:80px;
+   box-shadow: 0 0 20px rgb(4, 82, 30);
+   border-radius: 15px;
+}
+
+.mid button:hover {
+   background-color: rgb(96, 110, 240);
+   color:rgb(246, 248, 245);
+}
+
+.mid span{
+   margin: 5px;
+   border-radius: 5px;
+   background: rgb(126, 124, 124, 0.5);
+}
+
+/***Register***/
+
+.row_mid{
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   column-width: auto;
+   column-gap: 75px;
+   justify-content: space-between;
+   align-items: center;
+}
+
+#reg{
+
+   width: 1000px;
+   margin: 155px auto;
+}
+
+
+/***Forms***/
+.form_control{
+   position: auto;
+   background-color: white;
+   font-family: 'Montserrat', sans-serif;
+   font-size:28px;
+   font-weight: 500;
+   margin-left: 390px;
+   width:70px;
+   border-radius: 30px;
+}
+.form_control_button{
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 500;
+   font-size: 18px;
+   color:  rgb(163, 202, 214);
+   text-decoration: none;
+   padding:  9px 25px;
+   background-color: rgb(96, 110, 240);
+   border: none;
+   border-radius: 50px;
+   width:180px;
+   margin-left: 330px;
+   cursor: pointer;
+   transition: all 0.3s ease 0s;
+}
+.form_control_button:hover {
+   background-color: rgb(117, 189, 107);
+   color:rgb(246, 248, 245);
+
+
+

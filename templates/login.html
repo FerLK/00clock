@@ -1,0 +1,24 @@
+{%extends "model-page.html"%}
+{%block content%}
+
+<div class = "mid">
+    <div class = "container_mid">
+        <h2>Login</h2>
+        <form action="" method="post">
+            <div class="form-item">
+              <span class="material-icons">account_box</span>
+                <input type="text" name="user" id=user placeholder="Email">
+            </div>
+            <div class="form-item">
+              <span class="material-icons">lock</span>
+                <input type="password" name="pass" id=pass placeholder="password">
+            </div>
+            <br>
+            <button type="submit">LOGIN</button>
+            <br>
+            <p>New User ?</p> <a href="/reg">Create an Account</a>
+        </form>
+    </div>
+</div>
+
+{%endblock%}

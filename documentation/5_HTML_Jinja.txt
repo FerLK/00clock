@@ -1,0 +1,51 @@
+
+HTML relation between pages
+##############################################################################
+at model-page.html:
+{%block content%}
+{%endblock%}
+
+others pages:
+{%extends "model-page.html"%}
+{%block content%}
+"content of the page"
+{%endblock%}
+
+Python at HTML
+##############################################################################
+html page ->
+{%for user in all_users%}
+<div class = "row_mid">
+{{user}}
+</div>
+{%endfor%}
+
+endpoint -> return render_template('login.html', all_users=form)
+
+forms at HTML
+##############################################################################
+from wtforms import StringField, SubmitField, IntegerField...
+##############################################################################
+html page ->
+{{form.hidden_tag()}} -> security
+{{form.name.label}} -> information
+{{form.name()}} -> input a variable
+{{form.submit()}} -> get or post the information
+
+forms.py ->
+class AddForm(FlaskForm):
+    name = StringField('name->')
+    submit = SubmitField('add user')
+
+endpoint ->
+form = AddForm()
+    if form.validate_on_submit():
+        _name = form.name.data
+        de = User.query.get(_name)
+        db.session.delete(de)
+        db.session.commit()
+
+
+
+
+

@@ -1,0 +1,7 @@
+
+Virtual Enviroment
+
+a. Install the Virtual Env using a terminal -> pip install virtualenv
+b. Create a new inside the project's folder -> virtualenv name
+c. Acttivate the virtual env -> source ./name/bin/activate
+d. Deactivate -> deactivate

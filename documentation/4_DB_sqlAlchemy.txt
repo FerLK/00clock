@@ -1,0 +1,102 @@
+create a db object
+##############################################################################
+from flask_sqlalchemy import SQLAlchemy
+db = SQLAlchemy()
+
+
+associate yout flask app with the database
+##############################################################################
+ from db import db
+    db.init_app(app)
+
+
+DB file way (normally in the app)
+##############################################################################
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db' #found DB on root
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #turn off flask track
+
+DB file way (with os)
+##############################################################################
+import os
+basedir = os.path.abspath(os.path.dirname(__file__))
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///'+ os.path.join(basedir, 'data.sql') #found DB on root,in any os
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False #turn off flask track
+
+
+Function for create the tables after a reset
+##############################################################################
+@app.before_first_request
+def create_tables():
+    db.create_all()
+
+Flask Migrate
+##############################################################################
+pip install Flask-Migrate
+on your app:
+from flask_migrate import Migrate
+Migrate(app,db)
+
+on console:
+export Flask_APP=app.py
+flask db init
+flask db migrate -m "some message for future consults"
+flask db upgrade
+
+
+CREATING A DATABASE
+##############################################################################
+class Name(db.Model):
+    __tablename__ = "name"
+
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.Text)
+    number = db.Column(db.Integer)
+
+    def __init__(self,name,number):
+        self.name = name
+        self.number = number
+
+    def __repr__(self):
+        return f"{self.name} and {self.number}"
+
+Relationship between two obj inside the DB
+##############################################################################
+#One to many"
+at model1:
+examples = db.relationship('NameModelRel', backref = "nameRef", lazy = 'dynamic')
+at model2:
+name_id = db.Column(db.Integer, db.ForeignKey(name_of_table.id))
+
+#One to one"
+examples = db.relationship('NameModelRel', backref = "nameRef", uselist = False)
+name_id = db.Column(db.Integer,db.ForeignKey('name_of_table.id'))
+
+Insert data
+##############################################################################
+db.session.add(new_obj)
+db.session.add_all([new_obj1,new_obj2,new_obj3])
+db.session.commit() -> save at db!
+
+SQL ALCHEMY CRUD (ex.)
+##############################################################################
+#Read#
+list_all = Name_Obj.query.all() #list of all objects in the table
+print(list_all)
+
+#Select by id#
+list_one = Name_Obj.query.get(id) #id = primary key
+
+#Filters#
+list_name = Name_Obj.query.filter_by(name="name_filter")
+print(list_name.all() # return all obj with name == name_filter
+
+#Update#
+list_first = Name_Obj.query.get(1)
+list_first.name = "new name"
+db.session.add(list_first.name)
+db.session.commit() #update the name of first obj in the db
+
+#Delete#
+list_second = Name_Obj.query.get(2)
+db.session.delete(list_first.name)
+db.session.commit() #delete the second obj in the db

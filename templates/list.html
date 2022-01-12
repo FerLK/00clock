@@ -1,0 +1,19 @@
+{%extends "model-page.html"%}
+{%block content%}
+<div class = "mid">
+    <div class = "container_mid" id="reg">
+        <h2>List</h2>
+
+          <form action="" method="GET">
+            {%for user in all_users%}
+            <div class = "row_mid">
+             <h5>      {{user['username']}}   </h5>
+             <h3>      {{user}}   </h3>
+             <br>
+            </div>
+            {%endfor%}
+          </form>
+    </div>
+</div>
+
+{%endblock%}
