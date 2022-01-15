@@ -32,6 +32,9 @@ html page ->
 {{form.name()}} -> input a variable
 {{form.submit()}} -> get or post the information
 
+link with url_for at html->
+href="{{ url_for('name_endpoint')}}"
+
 forms.py ->
 class AddForm(FlaskForm):
     name = StringField('name->')
