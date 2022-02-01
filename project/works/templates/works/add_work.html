@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{%extends "model-page.html"%}
+{%block content%}
+<div class = "mid">
+    <div class = "container_mid" id="reg">
+        <h2>Works</h2>
+        {% if not active%}
+           <form action="" method="POST">
+               {{name}} {{active}}
+               {%for work in works%}
+            <div class = "row_mid">
+                <ul>
+                      {{work}}
+                </ul>
+            </div>
+            {%endfor%}
+               <span class="material-icons">label</span>
+                  {{form.hidden_tag()}}
+                  {{form.name.label}}{{form.name()}}
+               <br>
+             <button type="submit" {{form.submit()}} SEND </button>
+           </form>
 
-</body>
-</html>
+               {%for work in works%}
+            <div class = "row_mid">
+                <ul>
+                     {{work}}
+                </ul>
+            </div>
+                {% endfor %}
+
+             {%else%}
+            <form action="" method="POST">
+         <span class="material-icons">label</span>
+          {{form.hidden_tag()}}
+          {{form.name.label}}{{form.name()}}
+           <br>
+         <button type="submit" {{form.submit()}} SEND </button>
+            <h1>Trabalhando!!!</h1>
+
+            {%for work in works%}
+            <div class = "row_mid">
+                <ul>
+                     {{work}}
+                </ul>
+            </div>
+                {% endfor %}
+
+            {% endif %}
+                </form>
+
+    </div>
+</div>
+
+{%endblock%}

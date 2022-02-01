@@ -1,0 +1,19 @@
+BCRYPT
+##############################################################################
+from flask_bcrypt import Bcrypt
+
+bcrypt = Bcrypt
+
+password = 'anypass'
+
+hashed_password = bcrypt.generate_password_hash(password = password)
+
+check = bcrypt.check_password_hash(hashed_password, 'try_pass')
+
+Werkzeug
+##############################################################################
+from werkzeug.security import generate_password_hash, check_password_hash
+
+hashed_pass = generate_password_hash('my_password')
+
+check = check_password_hash(hashed_pass,'my_password')

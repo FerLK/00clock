@@ -12,10 +12,18 @@
                 </div>
               <div class="form-item">
                   <span class="material-icons">label</span>
+                  {{form.hidden_tag()}}
+                  {{form.email.label}}{{form.email()}}
+
+                </div>
+              <div class="form-item">
+                  <span class="material-icons">label</span>
+                  {{form.hidden_tag()}}
                   {{form.password.label}}{{form.password()}}
                 </div>
               <br>
-              <button type="submit" {{form.submit}}></button>
+              <button type="submit" {{form.submit()}} SEND </button>
+
           </form>
 
     </div>

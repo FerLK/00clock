@@ -1,0 +1,16 @@
+from flask import Blueprint
+
+Create a views.py
+##############################################################################
+declare the blueprint ->
+name_blueprint = Blueprint('name_obj', __name__, template_folder='templates/name_obj')
+
+
+Inside views.py make the endpoints using this decorator
+##############################################################################
+@name_blueprint.route('/url', methods=['GET', 'POST'])
+
+At __init__.py import and register the blueprint
+##############################################################################
+from project.users.views import name_blueprint
+app.register_blueprint(name_blueprint, url_prefix='/name_url')

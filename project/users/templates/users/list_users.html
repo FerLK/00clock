@@ -7,12 +7,26 @@
           <form action="" method="GET">
             {%for user in all_users%}
             <div class = "row_mid">
-             <h5>      {{user['username']}}   </h5>
-             <h3>      {{user}}   </h3>
+                <ul>
+                <h3>      {{user}}   </h3>
+
+                </ul>
              <br>
             </div>
             {%endfor%}
           </form>
+        <form action="" method="GET">
+            {%for work in all_works%}
+            <div class = "row_mid">
+                <ul>
+                <h3>      {{work}}   </h3>
+                <h3>      {{work.id}}   </h3>
+                </ul>
+             <br>
+            </div>
+            {%endfor%}
+          </form>
+
     </div>
 </div>
 

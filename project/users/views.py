@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, redirect, url_for
 from project import db
-from project.models import User
+from project.models import User, Work
 from project.users.forms import AddForm, DelForm
+from flask_login import login_user, login_required, logout_user, current_user
 
 users_blueprint = Blueprint('users', __name__, template_folder='templates/users')
 
@@ -11,8 +12,9 @@ def add():
     form = AddForm()
     if form.validate_on_submit():
         name = form.name.data
+        email = form.email.data
         password = form.password.data
-        new_user = User(name, password)
+        new_user = User(name, email, password)
         db.session.add(new_user)
         db.session.commit()
 
@@ -36,4 +38,11 @@ def del_():
 @users_blueprint.route('/list')
 def list_users():
     users = User.query.all()
-    return render_template("list_users.html", all_users=users)
+    works = Work.query.all()
+    return render_template("list_users.html", all_users=users, all_works = works)
+
+@users_blueprint.route('/profile')
+@login_required
+def profile_users():
+    works = Work.query.filter_by(user_id=current_user.id)
+    return render_template("profile.html", name=current_user.name, id_=current_user.id, working=current_user.working, all_works=works)

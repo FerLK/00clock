@@ -7,8 +7,17 @@
     padding: 0;
     border:0;
     background-color: rgb(6, 10, 8);
-    
+
 }
+
+
+
+.form input{
+    width: 100%;
+    min-height: 20px !important;
+
+}
+
 
 /**HEADER**/
 
@@ -206,13 +215,12 @@ footer{
    text-decoration: none;
 }
 
-
 .container_mid{
    display: flex;
    flex-direction: column;
    align-items: center;
    text-align: center;
-   width: auto;
+   width: 800px;
    margin: 150px auto;
    background: transparent;
    box-shadow: 0 0 15px rgb(255, 255, 255);
@@ -290,8 +298,7 @@ footer{
 }
 
 #reg{
-
-   width: 1000px;
+   width: 950px;
    margin: 155px auto;
 }
 
@@ -325,6 +332,25 @@ footer{
 .form_control_button:hover {
    background-color: rgb(117, 189, 107);
    color:rgb(246, 248, 245);
+
+.btn {
+  display: inline-block;
+  font-size: 45px;
+  padding: 12px 24px;
+  background: rgb(220,220,220);
+  font-weight: bold;
+  color: rgb(120,120,120);
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: ease .3s;
+}
+
+.btn:hover {
+  background: #8BC34A;
+  color: #ffffff;
+}
 
 
 
