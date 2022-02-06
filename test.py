@@ -8,6 +8,7 @@ b = datetime.now().strftime("%x")
 
 
 print(x)
+print("isso", x.strftime("%x"))
 print(x.day)
 print(x.time())
 print(x.strftime("%A"))
@@ -24,3 +25,5 @@ print(str(datetime.now().strftime("%X")))
 now = datetime.now()
 now = now - timedelta(hours=8, minutes=23, seconds=10)
 print(x - now)
+
+print((datetime.now().strftime("%x")))

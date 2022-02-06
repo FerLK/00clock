@@ -10,20 +10,23 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body class="d-flex flex-column">
+   <div id="page-container">
+   <div id="content-wrap">
     <header>
         {% include "model-header.html"%}
     </header>
     <main>
         <div class="background"></div>
-       
+
         {%block content%}
         {%endblock%}
     </main>
 
-
-    <footer class = "py-4 bg-dark text-white">
+    </div>
+    <footer id="footer" >
         {% include "model-footer.html"%}
     </footer>
+    </div>
 
     <script type = "application/javascript" src = "/static/clock.js"></script>
 

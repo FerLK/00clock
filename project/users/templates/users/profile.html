@@ -8,7 +8,7 @@
           <ul class = "">
             <div class="form-item">
                   <span class="material-icons">label</span>
-                   <h2>Nome : {{name}}</h2>
+                   <h2>Name : {{name}}</h2>
                 </div>
               <div class="form-item">
                   <span class="material-icons">label</span>
@@ -19,16 +19,16 @@
                    <h2>Working : {{working}}</h2>
                 </div>
             <br>
-          </ul>
+            </ul>
              {%for work in all_works%}
-            <div class = "row_mid">
-                <div class="form-item">
+
+                <div class="">
                 <ul>
-                <span class="material-icons">label</span>
-                {{work}}
+
+                    <p>{{work}}</p><br>
                 </ul>
+
                 </div>
-            </div>
             {%endfor%}
         </form>
     </div>

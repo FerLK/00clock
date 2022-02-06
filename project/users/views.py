@@ -41,6 +41,7 @@ def list_users():
     works = Work.query.all()
     return render_template("list_users.html", all_users=users, all_works = works)
 
+
 @users_blueprint.route('/profile')
 @login_required
 def profile_users():

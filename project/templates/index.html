@@ -2,7 +2,12 @@
 {%block content%}
 <div class = "mid">
     <div class = "container_mid" id="reg">
-        <p>APRESENTAÇÃO</p>
+            {% if actives%}
+        <h2>APRESENTAÇÃO</h2><br>
+        <p>projeto de treino -> programação full com Flask, SQL, HTML, JavaS</p><br>
+            {% else %}
+        <h2>O seu perfil não tem mais atividades hoje.</h2><br>
+            {% endif %}
     </div>
 </div>
 

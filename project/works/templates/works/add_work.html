@@ -4,49 +4,29 @@
     <div class = "container_mid" id="reg">
         <h2>Works</h2>
         {% if not active%}
-           <form action="" method="POST">
-               {{name}} {{active}}
-               {%for work in works%}
-            <div class = "row_mid">
-                <ul>
-                      {{work}}
-                </ul>
-            </div>
-            {%endfor%}
+            <form action="" method="POST">
+               <p>Usuário: {{name}}</p>
+               <div class="form-item">
                <span class="material-icons">label</span>
                   {{form.hidden_tag()}}
                   {{form.name.label}}{{form.name()}}
+                </div>
                <br>
-             <button type="submit" {{form.submit()}} SEND </button>
+             <button type="submit"> SEND </button>
            </form>
-
-               {%for work in works%}
-            <div class = "row_mid">
-                <ul>
-                     {{work}}
-                </ul>
-            </div>
-                {% endfor %}
 
              {%else%}
             <form action="" method="POST">
-         <span class="material-icons">label</span>
-          {{form.hidden_tag()}}
-          {{form.name.label}}{{form.name()}}
-           <br>
-         <button type="submit" {{form.submit()}} SEND </button>
-            <h1>Trabalhando!!!</h1>
-
-            {%for work in works%}
-            <div class = "row_mid">
-                <ul>
-                     {{work}}
-                </ul>
+            <div class="form-item">
+             <span class="material-icons">label</span>
+              {{form.hidden_tag()}}
+              {{form.name.label}}{{form.name()}}
+               <br>
             </div>
-                {% endfor %}
-
+             <button type="submit" {{form.submit()}} SEND </button> <br>
+            <h1>Trabalhando!!!</h1>
             {% endif %}
-                </form>
+            </form>
 
     </div>
 </div>

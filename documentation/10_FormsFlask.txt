@@ -1,0 +1,7 @@
+from flask import request
+##############################################################################
+inside a route, who have methods declare the request:
+
+@app.route("/", methods=["GET","POST"])
+def home():
+    if request.method == "POST":

@@ -18,7 +18,7 @@ class OtherForm(FlaskForm):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return render_template('index.html', actives=True)
 
 
 @app.route('/welcome')
@@ -33,7 +33,7 @@ def login():
     if form.validate_on_submit():
         user = User.query.filter_by(email=form.email.data).first()
 
-        if user.check_password(form.password.data) and user is not None:
+        if user is not None and user.check_password(form.password.data):
             login_user(user)
             flash('logged success')
 
@@ -43,7 +43,8 @@ def login():
 
             return redirect(url_for("works.add"))
 
-            # return redirect(url_for('welcome_user'))
+        else:
+            return redirect(url_for('index'))
 
     return render_template('login.html', form=form)
 
