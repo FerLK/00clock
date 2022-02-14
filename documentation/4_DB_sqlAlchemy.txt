@@ -100,3 +100,10 @@ db.session.commit() #update the name of first obj in the db
 list_second = Name_Obj.query.get(2)
 db.session.delete(list_first.name)
 db.session.commit() #delete the second obj in the db
+
+SQL ALCHEMY tools
+##############################################################################
+count in Jinja
+{{ Table.query.filter_by(condition).count() }}
+count at end point
+Table.query.filter_by(condition).count()

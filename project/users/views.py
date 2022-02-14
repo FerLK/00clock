@@ -9,17 +9,30 @@ users_blueprint = Blueprint('users', __name__, template_folder='templates/users'
 
 @users_blueprint.route('/add', methods=['GET', 'POST'])
 def add():
+    error = None
     form = AddForm()
     if form.validate_on_submit():
         name = form.name.data
         email = form.email.data
         password = form.password.data
+
+        #!!! Verificar se ha registro igual
+        # data = UserRegister.parser.parse_args()
+        #
+        # if UserModel.find_by_username(data['username']):
+        #     return {"message": "name already taken"}, 400
+
+
         new_user = User(name, email, password)
         db.session.add(new_user)
         db.session.commit()
 
-        return redirect(url_for('users.list_users'))
-    return render_template("add_user.html", form=form)
+        user = User.query.filter_by(email=form.email.data).first()
+        login_user(user)
+
+        return redirect(url_for('works.add'))
+
+    return render_template("add_user.html", form=form, error=error)
 
 
 @users_blueprint.route('/del', methods=['GET', 'POST'])
@@ -46,4 +59,7 @@ def list_users():
 @login_required
 def profile_users():
     works = Work.query.filter_by(user_id=current_user.id)
-    return render_template("profile.html", name=current_user.name, id_=current_user.id, working=current_user.working, all_works=works)
+    alltime_work = Work.query.filter_by(user_id=current_user.id).count()
+    return render_template("profile.html", alltime_work=alltime_work, name=current_user.name,
+                           id_=current_user.id, working=current_user.working, all_works=works)
+

@@ -44,7 +44,7 @@ def login():
             return redirect(url_for("works.add"))
 
         else:
-            return redirect(url_for('index'))
+            return redirect(url_for('login'))
 
     return render_template('login.html', form=form)
 

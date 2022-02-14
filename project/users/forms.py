@@ -1,7 +1,8 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, IntegerField, PasswordField
-from wtforms.validators import DataRequired, Email, EqualTo
+from wtforms import StringField, SubmitField, IntegerField, PasswordField, EmailField, validators
+from wtforms.validators import DataRequired, Email, EqualTo, InputRequired
 from wtforms import ValidationError
+from wtforms.fields import EmailField
 from project.models import User
 
 
@@ -29,9 +30,9 @@ class RegistrationForm(FlaskForm):
 
 class AddForm(FlaskForm):
 
-    name = StringField('name->')
-    password = StringField('password->')
-    email = StringField('email')
+    name = StringField('name:')
+    password = StringField('password:')
+    email = StringField('email:')
     submit = SubmitField('add user')
 
 

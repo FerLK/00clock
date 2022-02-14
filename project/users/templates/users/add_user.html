@@ -19,9 +19,10 @@
               <div class="form-item">
                   <span class="material-icons">label</span>
                   {{form.hidden_tag()}}
-                  {{form.password.label}}{{form.password()}}
-
-                </div>
+                  <label for="pass">password:</label>
+                  <input type="password" id="pass" name="password"
+           minlength="4" required>
+              </div>
               <br>
               <button type="submit" {{form.submit()}} SEND </button>
 

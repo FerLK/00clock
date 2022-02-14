@@ -6,7 +6,7 @@ a = x.strftime("%B") + " " + str(x.day)
 
 b = datetime.now().strftime("%x")
 
-
+print(x.hour)
 print(x)
 print("isso", x.strftime("%x"))
 print(x.day)

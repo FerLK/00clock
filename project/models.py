@@ -47,13 +47,15 @@ class Work(db.Model):
     __tablename__ = "works"
     id = db.Column(db.Integer, primary_key=True)
     work_name = db.Column(db.String(64), index=True)
+    work_local = db.Column(db.String(64), index=True)
     time_init = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
     time_final = db.Column(db.DateTime)
     active = db.Column(db.Boolean, default=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
 
-    def __init__(self, name, user_id, time_init):
+    def __init__(self, name, local, user_id, time_init):
         self.work_name = name
+        self.work_local = local
         self.time_init = time_init
         self.time_final = time_init + timedelta(hours=8)
         self.active = True
@@ -65,5 +67,5 @@ class Work(db.Model):
         self.active = False
 
     def __repr__(self):
-        return f"Work->{self.work_name} timeInitial->{self.time_init.strftime('%X')} timeFinal->{self.time_final.strftime('%X')}"
+        return f"{self.time_init.strftime('%x')} Begin: {self.time_init.strftime('%X')} End: {self.time_final.strftime('%X')}"
 
